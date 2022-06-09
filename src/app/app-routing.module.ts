@@ -7,6 +7,7 @@ import {UserComponent} from './user/user.component';
 import {RegisterroleComponent} from './auth/registerrole/registerrole.component';
 import {RegisterhostComponent} from './auth/registerhost/registerhost.component';
 import {HostComponent} from './host/host.component';
+import {LoadPageComponent} from './auth/load-page/load-page.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'host',
     component: HostComponent
+  },
+  {
+    path: 'loadPage',
+    component: LoadPageComponent
   }
 ];
 

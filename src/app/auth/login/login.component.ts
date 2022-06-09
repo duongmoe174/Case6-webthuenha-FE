@@ -26,26 +26,27 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.getAllUser();
-    this.getCurrentUser();
+    // this.getCurrentUser();
   }
 
   login() {
     console.log(this.loginForm.get('username').value);
     console.log(this.loginForm.get('password').value);
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
     this.authService.login(this.loginForm.get('username').value, this.loginForm.get('password').value).subscribe((res) => {
-      const roleList = this.currentUser.roles;
-      for (const role of roleList) {
-        if (role.authority === 'ROLE_USER') {
-          this.router.navigateByUrl('/user');
-        }
-        if (role.authority === 'ROLE_ADMIN') {
-          this.router.navigateByUrl('/admin');
-        }
-        if (role.authority === 'ROLE_HOST') {
-          this.router.navigateByUrl('/host');
-        }
-      }
+      this.router.navigateByUrl('/loadPage');
+      // const roleList = this.currentUser.roles;
+      // for (const role of roleList) {
+      //   if (role.authority === 'ROLE_USER') {
+      //     this.router.navigateByUrl('/user');
+      //   }
+      //   if (role.authority === 'ROLE_ADMIN') {
+      //     this.router.navigateByUrl('/admin');
+      //   }
+      //   if (role.authority === 'ROLE_HOST') {
+      //     this.router.navigateByUrl('/host');
+      //   }
+      // }
     }, error => {
       for (let user of this.users) {
         if (user.username !== this.loginForm.get('username').value || user.password !== this.loginForm.get('password').value) {
@@ -60,8 +61,8 @@ export class LoginComponent implements OnInit {
       this.users = listUserFromBE);
   }
 
-  getCurrentUser() {
-    this.currentUser = localStorage.getItem('currentUser');
-    this.currentUser = JSON.parse(this.currentUser);
-  }
+  // getCurrentUser() {
+  //   this.currentUser = localStorage.getItem('currentUser');
+  //   this.currentUser = JSON.parse(this.currentUser);
+  // }
 }
