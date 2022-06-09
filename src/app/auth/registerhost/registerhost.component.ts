@@ -1,15 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../service/auth/auth.service';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../model/user';
+import {AuthService} from '../../service/auth/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registerhost',
+  templateUrl: './registerhost.component.html',
+  styleUrls: ['./registerhost.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterhostComponent implements OnInit {
+
   user: any = {};
   formRegister: FormGroup;
   message: string = null;
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  register() {
+  registerHost() {
     this.user = {
       username: this.formRegister.value.username,
       email: this.formRegister.value.email,
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
         break;
       }
     }
-    this.authService.register(this.user).subscribe(() => {
+    this.authService.registerHost(this.user).subscribe(() => {
       this.router.navigateByUrl('/login');
     }, error => {
     });
@@ -53,4 +54,5 @@ export class RegisterComponent implements OnInit {
     this.authService.getAllUser().subscribe((listUserFromBE) =>
       this.users = listUserFromBE);
   }
+
 }

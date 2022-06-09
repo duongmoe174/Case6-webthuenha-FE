@@ -40,11 +40,15 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  register(signUpForm): Observable<User> {
-    return this.http.post<User>(`${API_URL}/signupAdmin`, signUpForm);
+  register(signUpForm): Observable<any> {
+    return this.http.post<any>(`${API_URL}/signupUser`, signUpForm);
   }
 
   getAllUser(): Observable<User[]> {
     return this.http.get<User[]>(`${API_URL}/users`);
+  }
+
+  registerHost(singUpForm): Observable<any> {
+    return this.http.post<any>(`${API_URL}/signupHost`, singUpForm);
   }
 }
