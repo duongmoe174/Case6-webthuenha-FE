@@ -10,12 +10,14 @@ import {JwtInterceptor} from './helper/jwt-interceptor';
 import {ErrorInterceptor} from './helper/error-interceptor';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
+import { HostComponent } from './host/host.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     UserComponent,
+    HostComponent,
   ],
   imports: [
     BrowserModule,
