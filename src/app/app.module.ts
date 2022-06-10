@@ -10,12 +10,18 @@ import {JwtInterceptor} from './helper/jwt-interceptor';
 import {ErrorInterceptor} from './helper/error-interceptor';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
+import { HouseComponent } from './house/house.component';
+import { HouseListComponent } from './house/house-list/house-list.component';
+import { RoomListComponent } from './room/room-list/room-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     UserComponent,
+    HouseComponent,
+    HouseListComponent,
+    RoomListComponent,
   ],
   imports: [
     BrowserModule,
