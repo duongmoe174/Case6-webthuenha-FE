@@ -12,7 +12,7 @@ import {LoadPageComponent} from './auth/load-page/load-page.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
 
