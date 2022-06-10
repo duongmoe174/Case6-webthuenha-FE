@@ -45,7 +45,7 @@ export class RegisterhostComponent implements OnInit {
       }
     }
     this.authService.registerHost(this.user).subscribe(() => {
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('');
     }, error => {
     });
   }
