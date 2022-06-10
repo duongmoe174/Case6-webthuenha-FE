@@ -22,7 +22,7 @@ export class HostComponent implements OnInit {
   }
 
   getProfileByUserId() {
-    this.profileService.getProfileByUserId(this.currentUser.id).subscribe((profileBE) => {
+    this.profileService.getProfileByHostId(this.currentUser.id).subscribe((profileBE) => {
       this.profile = profileBE;
     });
   }
@@ -35,6 +35,6 @@ export class HostComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('');
   }
 }

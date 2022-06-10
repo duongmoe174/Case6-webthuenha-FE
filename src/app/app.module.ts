@@ -12,6 +12,7 @@ import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { HostComponent } from './host/host.component';
 import { ProfileUserComponent } from './user/profile-user/profile-user.component';
+import { ProfileHostComponent } from './host/profile-host/profile-host.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ProfileUserComponent } from './user/profile-user/profile-user.component
     UserComponent,
     HostComponent,
     ProfileUserComponent,
+    ProfileHostComponent,
   ],
   imports: [
     BrowserModule,
