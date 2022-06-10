@@ -7,6 +7,7 @@ import {LoginComponent} from '../login/login.component';
 import {RegisterComponent} from '../register/register.component';
 import {RegisterroleComponent} from '../registerrole/registerrole.component';
 import {RegisterhostComponent} from '../registerhost/registerhost.component';
+import {LoadPageComponent} from '../load-page/load-page.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {RegisterhostComponent} from '../registerhost/registerhost.component';
     RegisterComponent,
     RegisterroleComponent,
     RegisterhostComponent,
+    LoadPageComponent,
   ],
   imports: [
     CommonModule,
