@@ -21,4 +21,16 @@ export class HouseService {
   findById(id): Observable<House> {
     return this.http.get<House>(`${API_URL}/houses/${id}`);
   }
+
+  create(house): Observable<House> {
+    return this.http.post<House>(`${API_URL}/houses`, house);
+  }
+
+  update(id, data): Observable<House> {
+    return this.http.post(`${API_URL}/houses/${id}`, data);
+  }
+
+  delete(id): Observable<House> {
+    return this.http.delete(`${API_URL}/houses/${id}`);
+  }
 }

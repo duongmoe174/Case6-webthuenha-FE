@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {House} from '../../../model/house';
 import {HouseService} from '../../../service/house/house.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-house-detail',
@@ -12,8 +12,9 @@ export class HouseDetailComponent implements OnInit {
   id: number;
   house: House;
   constructor(private houseService: HouseService,
-              private activatedRouter: ActivatedRoute) {
-    this.activatedRouter.paramMap.subscribe((paramMap)=>{
+              private activatedRouter: ActivatedRoute,
+              private router: Router) {
+    this.activatedRouter.paramMap.subscribe((paramMap) => {
       this.id = + paramMap.get('id');
       this.getHouseById(this.id);
     });

@@ -10,6 +10,9 @@ import {HostComponent} from './host/host.component';
 import {LoadPageComponent} from './auth/load-page/load-page.component';
 import {HouseListComponent} from './host/house/house-list/house-list.component';
 import {HouseDetailComponent} from './host/house/house-detail/house-detail.component';
+import {HouseCreateComponent} from './host/house/house-create/house-create.component';
+import {HouseEditComponent} from './host/house/house-edit/house-edit.component';
+import {HouseDeleteComponent} from './host/house/house-delete/house-delete.component';
 
 
 const routes: Routes = [
@@ -52,8 +55,20 @@ const routes: Routes = [
     component: HouseListComponent
   },
   {
-    path: 'detail:/id',
+    path: 'detail/:id',
     component: HouseDetailComponent
+  },
+  {
+    path: 'create',
+    component: HouseCreateComponent
+  },
+  {
+    path: 'edit/:id',
+    component: HouseEditComponent
+  },
+  {
+    path: 'delete/:id',
+    component: HouseDeleteComponent
   }
 ];
 

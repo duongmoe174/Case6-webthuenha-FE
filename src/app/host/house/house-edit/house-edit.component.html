@@ -1,15 +1,16 @@
-<h1>Tạo mới nhà</h1>
+<h1>Sửa nhà</h1>
 <a routerLink="/houses">Danh sách nhà</a>
 <br>
 <br>
-<form [formGroup]="houseForm" (ngSubmit)="create()">
+<form [formGroup]="houseForm" (ngSubmit)="updateHouse(id)">
+  <input type="hidden"[routerLink]="" id="id" formControlName="id">
   <div>
     <label for="name">Tên nhà</label>
     <input type="text" id="name" formControlName="name">
   </div>
-  <div *ngIf="nameControl.touched && nameControl.invalid">
-    <p style="color: red" *ngIf="nameControl.errors?.required">Không được để trống tên nhà</p>
-  </div>
+<!--  <div *ngIf="nameControl.touched && nameControl.invalid">-->
+<!--    <p style="color: red" *ngIf="nameControl.errors?.required">Không được để trống tên nhà</p>-->
+<!--  </div>-->
   <br>
   <div>
     <label for="room_category">Loại phòng</label>
@@ -70,6 +71,7 @@
   </div>
   <br>
   <div>
-    <button>Thêm nhà</button>
+    <button>Sửa nhà</button>
   </div>
 </form>
+

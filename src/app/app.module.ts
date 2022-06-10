@@ -14,6 +14,8 @@ import {HouseListComponent} from './host/house/house-list/house-list.component';
 import { HostComponent } from './host/host.component';
 import { HouseCreateComponent } from './host/house/house-create/house-create.component';
 import { HouseDetailComponent } from './host/house/house-detail/house-detail.component';
+import { HouseEditComponent } from './host/house/house-edit/house-edit.component';
+import { HouseDeleteComponent } from './host/house/house-delete/house-delete.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { HouseDetailComponent } from './host/house/house-detail/house-detail.com
     HostComponent,
     HouseCreateComponent,
     HouseDetailComponent,
+    HouseEditComponent,
+    HouseDeleteComponent,
   ],
   imports: [
     BrowserModule,
