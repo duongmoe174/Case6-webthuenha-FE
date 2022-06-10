@@ -15,6 +15,10 @@ export class HouseService {
   }
 
   getAll(): Observable<House[]> {
-      return this.http.get<House[]>(`${API_URL}/houses`);
+      return this.http.get<House[]>(`${API_URL}/houses/list`);
+  }
+
+  findById(id): Observable<House> {
+    return this.http.get<House>(`${API_URL}/houses/${id}`);
   }
 }

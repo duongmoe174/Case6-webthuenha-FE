@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HouseService} from '../../service/house/house.service';
+import {HouseService} from '../../../service/house/house.service';
 import {Router} from '@angular/router';
-import {House} from '../../model/house';
+import {House} from '../../../model/house';
 
 
 @Component({

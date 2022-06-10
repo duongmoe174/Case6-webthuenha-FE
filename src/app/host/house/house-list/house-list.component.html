@@ -1,0 +1,29 @@
+<h1>Danh sách nhà</h1>
+<a routerLink="/create">Thêm nhà</a>
+<br><br>
+<table>
+  <tr>
+    <th>Stt</th>
+    <th>Tên nhà</th>
+    <th>Loại phòng</th>
+    <th>Địa chỉ</th>
+    <th>Giá</th>
+    <th>Ảnh phòng</th>
+    <th>Tình trạng</th>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr *ngFor="let house of houses;index as i">
+    <td>{{i+1}}</td>
+    <td>{{house.name}}</td>
+    <td>{{house.room_category.name}}</td>
+    <td>{{house.address}}</td>
+    <td>{{house.price}}</td>
+    <td><img src="http://localhost:8080/image/{{house.image}}" width="100" alt=""></td>
+    <td>{{house.status}}</td>
+    <td><a [routerLink]="['/edit', house.id]">Sửa</a></td>
+    <td><a [routerLink]="['/delete', house.id]">Xóa</a></td>
+    <td><a [routerLink]="['/detail', house.id]">Chi tiết</a></td>
+  </tr>
+</table>
