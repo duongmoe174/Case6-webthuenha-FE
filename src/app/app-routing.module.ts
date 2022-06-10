@@ -14,7 +14,7 @@ import {HouseDetailComponent} from './host/house/house-detail/house-detail.compo
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
 
