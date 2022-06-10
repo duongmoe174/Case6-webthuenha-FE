@@ -1,0 +1,56 @@
+<h1>Xóa nhà</h1>
+<a routerLink="/houses">Danh sách nhà</a>
+<br>
+<br>
+<form [formGroup]="houseForm" (ngSubmit)="delete(id)">
+  <input type="hidden"[routerLink]="" id="id" formControlName="id">
+  <div>
+    <label for="name">Tên nhà</label>
+    <input disabled type="text" id="name" formControlName="name">
+  </div>
+  <br>
+  <div>
+    <label for="room_category">Loại phòng</label>
+    <input disabled type="text" id="room_category" formControlName="room_category">
+  </div>
+  <br>
+  <div>
+    <label for="address">Địa chỉ</label>
+    <input disabled type="text" id="address" formControlName="address">
+  </div>
+  <br>
+  <br>
+  <div>
+    <label for="numberOfBedroom">Số phòng ngủ</label>
+    <input disabled id="numberOfBedroom" formControlName="numberOfBedroom">
+  </div>
+  <br>
+  <div>
+    <label for="numberOfBathroom">Số phòng tắm</label>
+    <input disabled id="numberOfBathroom" formControlName="numberOfBathroom">
+  </div>
+  <br>
+  <div>
+    <label for="description">Mô tả</label>
+    <input disabled type="text" id="description" formControlName="description">
+  </div>
+  <br>
+  <div>
+    <label for="price">Giá nhà</label>
+    <input disabled type="text" id="price" formControlName="price">
+  </div>
+  <br>
+  <div>
+    <label for="image">Ảnh</label>
+    <input disabled type="file" id="image" (change)="onFileSelected($event)">
+  </div>
+  <br>
+  <div>
+    <label for="status">Trạng thái</label>
+    <input disabled type="text" id="status" formControlName="status">
+  </div>
+  <br>
+  <div>
+    <button>Xóa nhà</button>
+  </div>
+</form>

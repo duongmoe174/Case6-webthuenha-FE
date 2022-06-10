@@ -1,0 +1,75 @@
+<h1>Tạo mới nhà</h1>
+<a routerLink="/houses">Danh sách nhà</a>
+<br>
+<br>
+<form [formGroup]="houseForm" (ngSubmit)="create()">
+  <div>
+    <label for="name">Tên nhà</label>
+    <input type="text" id="name" formControlName="name">
+  </div>
+  <div *ngIf="nameControl.touched && nameControl.invalid">
+    <p style="color: red" *ngIf="nameControl.errors?.required">Không được để trống tên nhà</p>
+  </div>
+  <br>
+  <div>
+    <label for="room_category">Loại phòng</label>
+    <select id="room_category" formControlName="room_category">
+      <option [ngValue]="null" >Chọn loại phòng</option>
+      <ng-container *ngFor="let room of rooms">
+        <option [value]="room.id">{{room.name}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label for="address">Địa chỉ</label>
+    <input type="text" id="address" formControlName="address">
+  </div>
+  <br>
+  <br>
+  <div>
+    <label for="numberOfBedroom">Số phòng ngủ</label>
+    <select id="numberOfBedroom" formControlName="numberOfBedroom">
+      <option [ngValue]="null" >Chọn số phòng ngủ</option>
+      <option [ngValue]="1">1</option>
+      <option [ngValue]="2">2</option>
+      <option [ngValue]="3">3</option>
+      <option [ngValue]="4">4</option>
+      <option [ngValue]="5">5</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label for="numberOfBathroom">Số phòng tắm</label>
+    <select id="numberOfBathroom" formControlName="numberOfBathroom">
+      <option [ngValue]="null" >Chọn số phòng tắm</option>
+      <option [ngValue]="1">1</option>
+      <option [ngValue]="2">2</option>
+      <option [ngValue]="3">3</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label for="description">Mô tả</label>
+    <input type="text" id="description" formControlName="description">
+  </div>
+  <br>
+  <div>
+    <label for="price">Giá nhà</label>
+    <input type="text" id="price" formControlName="price">
+  </div>
+  <br>
+  <div>
+    <label for="image">Ảnh</label>
+    <input type="file" id="image" (change)="onFileSelected($event)">
+  </div>
+  <br>
+  <div>
+    <label for="status">Trạng thái</label>
+    <input type="text" id="status" formControlName="status">
+  </div>
+  <br>
+  <div>
+    <button>Thêm nhà</button>
+  </div>
+</form>

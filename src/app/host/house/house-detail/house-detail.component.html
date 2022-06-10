@@ -1,0 +1,25 @@
+<h1>Chi tiết nhà</h1>
+<a routerLink="/houses">Danh sách nhà</a>
+<br><br>
+<table>
+  <tr>
+    <th>Tên nhà</th>
+    <th>Loại phòng</th>
+    <th>Địa chỉ</th>
+    <th>Số phòng ngủ</th>
+    <th>Số phòng tắm</th>
+    <th>Mô tả</th>
+    <th>Giá</th>
+    <th>Ảnh phòng</th>
+  </tr>
+  <tr>
+    <td>{{house.name}}</td>
+    <td>{{house.room_category.name}}</td>
+    <td>{{house.address}}</td>
+    <td>{{house.numberOfBedroom}}</td>
+    <td>{{house.numberOfBathroom}}</td>
+    <td>{{house.description}}</td>
+    <td>{{house.price}}</td>
+    <td><img src="http://localhost:8080/image/{{house.image}}" width="100" alt=""></td>
+  </tr>
+</table>

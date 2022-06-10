@@ -10,7 +10,12 @@ import {JwtInterceptor} from './helper/jwt-interceptor';
 import {ErrorInterceptor} from './helper/error-interceptor';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
+import {HouseListComponent} from './host/house/house-list/house-list.component';
 import { HostComponent } from './host/host.component';
+import { HouseCreateComponent } from './host/house/house-create/house-create.component';
+import { HouseDetailComponent } from './host/house/house-detail/house-detail.component';
+import { HouseEditComponent } from './host/house/house-edit/house-edit.component';
+import { HouseDeleteComponent } from './host/house/house-delete/house-delete.component';
 import { ProfileUserComponent } from './user/profile-user/profile-user.component';
 import { ProfileHostComponent } from './host/profile-host/profile-host.component';
 
@@ -19,7 +24,12 @@ import { ProfileHostComponent } from './host/profile-host/profile-host.component
     AppComponent,
     AdminComponent,
     UserComponent,
+    HouseListComponent,
     HostComponent,
+    HouseCreateComponent,
+    HouseDetailComponent,
+    HouseEditComponent,
+    HouseDeleteComponent,
     ProfileUserComponent,
     ProfileHostComponent,
   ],
