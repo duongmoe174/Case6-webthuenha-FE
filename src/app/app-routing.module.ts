@@ -9,6 +9,7 @@ import {RegisterhostComponent} from './auth/registerhost/registerhost.component'
 import {HostComponent} from './host/host.component';
 import {LoadPageComponent} from './auth/load-page/load-page.component';
 import {ProfileUserComponent} from './user/profile-user/profile-user.component';
+import {ProfileHostComponent} from './host/profile-host/profile-host.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'profileGuest',
     component: ProfileUserComponent
+  },
+  {
+    path: 'profileHost',
+    component: ProfileHostComponent
   }
 ];
 

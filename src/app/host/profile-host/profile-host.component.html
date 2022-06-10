@@ -1,4 +1,4 @@
-<app-user></app-user>
+<app-host></app-host>
 <div class="container">
   <div class="main-body">
 
@@ -11,7 +11,7 @@
       </ol>
     </nav>
 
-    <form [formGroup]="profileForm" (ngSubmit)="submitEditProfileGuest()">
+    <form [formGroup]="profileForm" (ngSubmit)="submitEditProfileHost()">
       <div class="row gutters-sm">
         <div class="col-md-4 mb-3">
           <div class="card">
@@ -24,7 +24,7 @@
                   <br>
                   <button type="button" class="btn btn-info" (click)="isShowInputImage()">Đổi ảnh đại diện</button>
                   <input class="form-control" id="image" placeholder="Nhập tên" type="file"
-                         formControlName="image" *ngIf="showInputImage" (change)="changeFile($event)">
+                         formControlName="image" *ngIf="showInputImage" (change)="changeFileHost($event)">
                 </div>
               </div>
             </div>
