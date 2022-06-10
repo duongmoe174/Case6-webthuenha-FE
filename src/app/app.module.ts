@@ -11,6 +11,7 @@ import {ErrorInterceptor} from './helper/error-interceptor';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { HostComponent } from './host/host.component';
+import { ProfileUserComponent } from './user/profile-user/profile-user.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HostComponent } from './host/host.component';
     AdminComponent,
     UserComponent,
     HostComponent,
+    ProfileUserComponent,
   ],
   imports: [
     BrowserModule,
