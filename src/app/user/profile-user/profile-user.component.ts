@@ -2,10 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Profile} from '../../model/profile';
 import {ProfileService} from '../../service/profile/profile.service';
 import {Router} from '@angular/router';
-import {NotifiService} from '../../service/notifi.service';
+import {NotifiService} from '../../service/alert/notifi.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../model/user';
-import {any} from 'codelyzer/util/function';
 
 @Component({
   selector: 'app-profile-user',

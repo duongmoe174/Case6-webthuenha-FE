@@ -22,7 +22,7 @@ export class HostComponent implements OnInit {
   }
 
   getProfileByUserId() {
-    this.profileService.getProfileByHostId(this.currentUser.id).subscribe((profileBE) => {
+    this.profileService.getHostByAppUserId(this.currentUser.id).subscribe((profileBE) => {
       this.profile = profileBE;
     });
   }
