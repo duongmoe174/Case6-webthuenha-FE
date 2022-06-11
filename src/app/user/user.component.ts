@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
   }
 
   getProfileByUserId() {
-    this.profileService.getProfileByUserId(this.currentUser.id).subscribe((profileBE) => {
+    this.profileService.getGuestByAppUserID(this.currentUser.id).subscribe((profileBE) => {
       this.profile = profileBE;
     });
   }

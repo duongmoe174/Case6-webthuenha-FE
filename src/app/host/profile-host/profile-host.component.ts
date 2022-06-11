@@ -3,7 +3,7 @@ import {Profile} from '../../model/profile';
 import {User} from '../../model/user';
 import {ProfileService} from '../../service/profile/profile.service';
 import {Router} from '@angular/router';
-import {NotifiService} from '../../service/notifi.service';
+import {NotifiService} from '../../service/alert/notifi.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
