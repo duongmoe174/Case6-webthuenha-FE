@@ -51,4 +51,9 @@ export class AuthService {
   registerHost(singUpForm): Observable<any> {
     return this.http.post<any>(`${API_URL}/signupHost`, singUpForm);
   }
+
+  isLoggedIn() {
+    const username = localStorage.getItem('currentUser');
+    return !(username === null);
+  }
 }

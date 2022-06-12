@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     }, error => {
       for (let user of this.users) {
         if (user.username !== this.loginForm.get('username').value || user.password !== this.loginForm.get('password').value) {
-          this.message = 'Wrong account or password';
+          this.message = 'Sai tài khoản hoặc mật khẩu';
         }
       }
     });

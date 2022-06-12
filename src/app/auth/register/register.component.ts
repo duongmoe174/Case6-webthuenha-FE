@@ -37,9 +37,10 @@ export class RegisterComponent implements OnInit {
       password: this.formRegister.value.password,
       confirmPassword: this.formRegister.value.confirmPassword
     };
-    for (let user of this.users) {
-      if (user.username === this.user.username.toLowerCase()) {
-        this.message = 'Account exited!';
+    for (const userList of this.users) {
+      // @ts-ignore
+      if (userList.name === this.user.username.toLowerCase()) {
+        this.message = 'Tài khoản đã tồn tại';
         break;
       }
     }

@@ -16,6 +16,7 @@ import {HouseDeleteComponent} from './host/house/house-delete/house-delete.compo
 import {ProfileUserComponent} from './user/profile-user/profile-user.component';
 import {ProfileHostComponent} from './host/profile-host/profile-host.component';
 import {ChangePasswordUserComponent} from './user/change-password-user/change-password-user.component';
+import {Error403Component} from './error403/error403/error403.component';
 
 
 const routes: Routes = [
@@ -85,6 +86,10 @@ const routes: Routes = [
     path: 'changePassUser',
     component: ChangePasswordUserComponent
   },
+  {
+    path: '403',
+    component: Error403Component
+  }
 ];
 
 @NgModule({
