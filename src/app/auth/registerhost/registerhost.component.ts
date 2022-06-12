@@ -44,6 +44,10 @@ export class RegisterhostComponent implements OnInit {
         this.message = 'Tài khoản đã tồn tại';
         break;
       }
+      if (user.email === this.user.email.toLowerCase()) {
+        this.message = 'Email này đã được đăng ký';
+        break;
+      }
     }
     this.authService.registerHost(this.user).subscribe(() => {
       this.router.navigateByUrl('');
