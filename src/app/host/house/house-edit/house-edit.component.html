@@ -8,9 +8,6 @@
     <label for="name">Tên nhà</label>
     <input type="text" id="name" formControlName="name">
   </div>
-<!--  <div *ngIf="nameControl.touched && nameControl.invalid">-->
-<!--    <p style="color: red" *ngIf="nameControl.errors?.required">Không được để trống tên nhà</p>-->
-<!--  </div>-->
   <br>
   <div>
     <label for="room_category">Loại phòng</label>
@@ -63,11 +60,6 @@
   <div>
     <label for="image">Ảnh</label>
     <input type="file" id="image" (change)="onFileSelected($event)">
-  </div>
-  <br>
-  <div>
-    <label for="status">Trạng thái</label>
-    <input type="text" id="status" formControlName="status">
   </div>
   <br>
   <div>

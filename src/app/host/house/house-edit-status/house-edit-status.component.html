@@ -1,0 +1,31 @@
+<h1>Sửa nhà</h1>
+<a routerLink="/houses">Danh sách nhà</a>
+<br>
+<br>
+<form [formGroup]="houseForm" (ngSubmit)="updateHouseStatus(id)">
+  <input type="hidden"[routerLink]="" id="id" formControlName="id">
+  <br>
+  <div>
+    <label for="name">Tên nhà</label>
+    <input disabled type="text" id="name" formControlName="name">
+  </div>
+  <br>
+  <div>
+    <label for="image">Ảnh</label>
+    <input type="file" id="image" (change)="onFileSelected($event)">
+  </div>
+  <br>
+  <div>
+    <label for="status">Trạng thái</label>
+    <select id="status" formControlName="status">
+      <option [ngValue]="null">Chọn trạng thái</option>
+      <ng-container *ngFor="let status of statuses">
+        <option [value]="status.id">{{status.name}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <br>
+  <div>
+    <button>Sửa nhà</button>
+  </div>
+</form>

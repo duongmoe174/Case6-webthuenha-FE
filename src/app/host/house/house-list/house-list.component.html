@@ -10,14 +10,16 @@
     <td></td>
     <td></td>
     <td></td>
+    <td></td>
   </tr>
   <tr *ngFor="let house of houses;index as i">
     <td>{{i+1}}</td>
     <td>{{house.name}}</td>
     <td><img src="http://localhost:8080/image/{{house.image}}" width="100" alt=""></td>
-    <td>{{house.status}}</td>
+    <td>{{house.status.name}}</td>
     <td><a [routerLink]="['/edit', house.id]">Sửa</a></td>
     <td><a [routerLink]="['/delete', house.id]">Xóa</a></td>
-    <td><a routerLink="/detail/{{house.id}}">Chi tiết</a></td>
+    <td><a [routerLink]="['/detail', house.id]">Chi tiết</a></td>
+    <td><a [routerLink]="['/status', house.id]">Thay đổi trạng thái</a></td>
   </tr>
 </table>

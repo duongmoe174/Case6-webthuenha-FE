@@ -25,7 +25,6 @@ export class HouseCreateComponent implements OnInit {
     description: new FormControl(),
     price: new FormControl(),
     image: new FormControl(),
-    status: new FormControl()
   });
   constructor(private houseService: HouseService,
               private roomService: RoomService,
@@ -62,7 +61,6 @@ export class HouseCreateComponent implements OnInit {
     data.append('description', this.houseForm.get('description').value);
     data.append('price', this.houseForm.get('price').value);
     data.append('image', this.selectedFile);
-    data.append('status', this.houseForm.get('status').value);
     if (this.houseForm.invalid) {
       return;
     } else {
