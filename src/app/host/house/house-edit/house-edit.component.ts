@@ -4,6 +4,8 @@ import {Room} from '../../../model/room';
 import {HouseService} from '../../../service/house/house.service';
 import {RoomService} from '../../../service/room/room.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {StatusService} from '../../../service/status/status.service';
+import {Status} from '../../../model/status';
 
 @Component({
   selector: 'app-house-edit',
@@ -22,12 +24,15 @@ export class HouseEditComponent implements OnInit {
     description: new FormControl(),
     price: new FormControl(),
     image: new FormControl(),
+    // status: new FormControl()
   });
   id: number;
   rooms: Room[] = [];
   image = null;
+  statuses: Status[] = [];
   constructor(private houseService: HouseService,
               private roomsService: RoomService,
+              private statusService: StatusService,
               private router: Router,
               private activatedRouter: ActivatedRoute) {
     this.activatedRouter.paramMap.subscribe((paramMap) => {
@@ -38,6 +43,7 @@ export class HouseEditComponent implements OnInit {
 
   ngOnInit() {
     this.getAllRoom();
+    this.getAllStatus();
   }
 
   onFileSelected(event) {
@@ -58,6 +64,7 @@ export class HouseEditComponent implements OnInit {
         description: new FormControl(house.description),
         price: new FormControl(house.price),
         image: new FormControl(),
+        // status: new FormControl(house.status.name)
       });
     });
   }
@@ -73,6 +80,7 @@ export class HouseEditComponent implements OnInit {
     house.append('description', this.houseForm.get('description').value);
     house.append('price', this.houseForm.get('price').value);
     house.append('image', this.selectedFile);
+    // house.append('status', this.houseForm.get('status').value);
     this.houseService.update(id, house).subscribe(() => {
       this.router.navigateByUrl('/houses');
     });
@@ -84,12 +92,18 @@ export class HouseEditComponent implements OnInit {
     });
   }
 
-  get nameControl() {
-    return this.houseForm.get('name');
+  getAllStatus() {
+    this.statusService.getAll().subscribe((statuses) => {
+      this.statuses = statuses;
+    });
   }
 
   get idControl() {
     return this.houseForm.get('id');
+  }
+
+  get nameControl() {
+    return this.houseForm.get('name');
   }
 
 }

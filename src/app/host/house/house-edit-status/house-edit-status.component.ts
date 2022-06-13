@@ -5,6 +5,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {HouseService} from '../../../service/house/house.service';
 import {StatusService} from '../../../service/status/status.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Room} from '../../../model/room';
+import {RoomService} from '../../../service/room/room.service';
 
 @Component({
   selector: 'app-house-edit-status',
@@ -13,17 +15,24 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class HouseEditStatusComponent implements OnInit {
   selectedFile = new File(['none'], 'filename.jpg');
-  house: House = {};
-  id: number;
-  statuses: Status[] = [];
   houseForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
+    // room_category: new FormControl(),
+    // address: new FormControl(),
+    // numberOfBedroom: new FormControl(),
+    // numberOfBathroom: new FormControl(),
+    // description: new FormControl(),
+    // price: new FormControl(),
     image: new FormControl(),
-    status: new FormControl(),
+    status: new FormControl()
   });
+  id: number;
+  rooms: Room[] = [];
   image = null;
+  statuses: Status[] = [];
   constructor(private houseService: HouseService,
+              private roomsService: RoomService,
               private statusService: StatusService,
               private router: Router,
               private activatedRouter: ActivatedRoute) {
@@ -34,6 +43,7 @@ export class HouseEditStatusComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllRoom();
     this.getAllStatus();
   }
 
@@ -48,8 +58,14 @@ export class HouseEditStatusComponent implements OnInit {
       this.houseForm = new FormGroup({
         id: new FormControl(house.id),
         name: new FormControl(house.name),
+        // room_category: new FormControl(house.room_category.name),
+        // address: new FormControl(house.address),
+        // numberOfBedroom: new FormControl(house.numberOfBedroom),
+        // numberOfBathroom: new FormControl(house.numberOfBathroom),
+        // description: new FormControl(house.description),
+        // price: new FormControl(house.price),
         image: new FormControl(),
-        status: new FormControl(house.status.name),
+        status: new FormControl(house.status.name)
       });
     });
   }
@@ -58,10 +74,22 @@ export class HouseEditStatusComponent implements OnInit {
     const house: FormData = new FormData();
     house.append('id', this.houseForm.get('id').value);
     house.append('name', this.houseForm.get('name').value);
+    // house.append('room_category', this.houseForm.get('room_category').value);
+    // house.append('address', this.houseForm.get('address').value);
+    // house.append('numberOfBedroom', this.houseForm.get('numberOfBedroom').value);
+    // house.append('numberOfBathroom', this.houseForm.get('numberOfBathroom').value);
+    // house.append('description', this.houseForm.get('description').value);
+    // house.append('price', this.houseForm.get('price').value);
     house.append('image', this.selectedFile);
     house.append('status', this.houseForm.get('status').value);
     this.houseService.update(id, house).subscribe(() => {
       this.router.navigateByUrl('/houses');
+    });
+  }
+
+  getAllRoom() {
+    this.roomsService.getAll().subscribe((rooms) => {
+      this.rooms = rooms;
     });
   }
 
@@ -71,12 +99,13 @@ export class HouseEditStatusComponent implements OnInit {
     });
   }
 
+  get idControl() {
+    return this.houseForm.get('id');
+  }
+
   get nameControl() {
     return this.houseForm.get('name');
   }
 
-  get idControl() {
-    return this.houseForm.get('id');
-  }
 
 }

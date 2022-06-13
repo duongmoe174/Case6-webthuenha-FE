@@ -65,6 +65,16 @@
   </div>
   <br>
   <div>
+    <label for="status">Trạng thái</label>
+    <select id="status" formControlName="status">
+      <option [ngValue]="null">Chọn trạng thái</option>
+      <ng-container *ngFor="let status of statuses">
+        <option [value]="status.id">{{status.name}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <br>
+  <div>
     <button>Thêm nhà</button>
   </div>
 </form>

@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class HouseDetailComponent implements OnInit {
   id: number;
-  house: House;
+  house: House = {};
   constructor(private houseService: HouseService,
               private activatedRouter: ActivatedRoute,
               private router: Router) {
@@ -21,6 +21,7 @@ export class HouseDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getHouseById(this.id);
   }
 
   getHouseById(id) {

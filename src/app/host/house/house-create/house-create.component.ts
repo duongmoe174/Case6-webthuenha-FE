@@ -6,6 +6,8 @@ import {HouseService} from '../../../service/house/house.service';
 import {RoomService} from '../../../service/room/room.service';
 import {Router} from '@angular/router';
 import {Host} from '../../../model/host';
+import {Status} from '../../../model/status';
+import {StatusService} from '../../../service/status/status.service';
 
 @Component({
   selector: 'app-house-create',
@@ -16,6 +18,7 @@ export class HouseCreateComponent implements OnInit {
   selectedFile = null;
   house: House = {};
   rooms: Room[] = [];
+  statuses: Status[] = [];
   houseForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     room_category: new FormControl(),
@@ -25,13 +28,16 @@ export class HouseCreateComponent implements OnInit {
     description: new FormControl(),
     price: new FormControl(),
     image: new FormControl(),
+    status: new FormControl()
   });
   constructor(private houseService: HouseService,
               private roomService: RoomService,
+              private statusService: StatusService,
               private router: Router) { }
 
   ngOnInit() {
     this.getAllRoom();
+    this.getAllStatus();
   }
   onFileSelected(event) {
     this.selectedFile = event.target.files[0] as File;
@@ -40,6 +46,12 @@ export class HouseCreateComponent implements OnInit {
   getAllRoom() {
     this.roomService.getAll().subscribe((rooms) => {
       this.rooms = rooms;
+    });
+  }
+
+  getAllStatus() {
+    this.statusService.getAll().subscribe((statuses) => {
+      this.statuses = statuses;
     });
   }
 
@@ -61,6 +73,7 @@ export class HouseCreateComponent implements OnInit {
     data.append('description', this.houseForm.get('description').value);
     data.append('price', this.houseForm.get('price').value);
     data.append('image', this.selectedFile);
+    data.append('status', this.houseForm.get('status').value);
     if (this.houseForm.invalid) {
       return;
     } else {

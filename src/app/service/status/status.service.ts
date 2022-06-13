@@ -3,6 +3,7 @@ import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Status} from '../../model/status';
+import {House} from '../../model/house';
 
 
 const API_URL = `${environment.apiURL}`;
@@ -15,5 +16,13 @@ export class StatusService {
 
   getAll(): Observable<Status[]> {
     return this.http.get<Status[]>(`${API_URL}/houses/status`);
+  }
+
+  findById(id): Observable<House> {
+    return this.http.get<House>(`${API_URL}/houses/${id}`);
+  }
+
+  update(id, data): Observable<House> {
+    return this.http.post(`${API_URL}/houses/status/${id}`, data);
   }
 }
