@@ -19,6 +19,7 @@ import { HouseDeleteComponent } from './host/house/house-delete/house-delete.com
 import { ProfileUserComponent } from './user/profile-user/profile-user.component';
 import { ProfileHostComponent } from './host/profile-host/profile-host.component';
 import { ChangePasswordUserComponent } from './user/change-password-user/change-password-user.component';
+import { HouseEditStatusComponent } from './host/house/house-edit-status/house-edit-status.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ChangePasswordUserComponent } from './user/change-password-user/change-
     ProfileUserComponent,
     ProfileHostComponent,
     ChangePasswordUserComponent,
+    HouseEditStatusComponent,
   ],
   imports: [
     BrowserModule,

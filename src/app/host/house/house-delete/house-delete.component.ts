@@ -20,7 +20,6 @@ export class HouseDeleteComponent implements OnInit {
     description: new FormControl(),
     price: new FormControl(),
     image: new FormControl(),
-    status: new FormControl(),
   });
   id: number;
   constructor(private houseService: HouseService,
@@ -51,7 +50,6 @@ export class HouseDeleteComponent implements OnInit {
         description: new FormControl(house.description),
         price: new FormControl(house.price),
         image: new FormControl(house.image),
-        status: new FormControl(house.status)
       });
     });
   }

@@ -1,30 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {Room} from '../../../model/room';
-import {HouseService} from '../../../service/house/house.service';
-import {RoomService} from '../../../service/room/room.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {StatusService} from '../../../service/status/status.service';
+import {House} from '../../../model/house';
 import {Status} from '../../../model/status';
+import {FormControl, FormGroup} from '@angular/forms';
+import {HouseService} from '../../../service/house/house.service';
+import {StatusService} from '../../../service/status/status.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Room} from '../../../model/room';
+import {RoomService} from '../../../service/room/room.service';
 
 @Component({
-  selector: 'app-house-edit',
-  templateUrl: './house-edit.component.html',
-  styleUrls: ['./house-edit.component.css']
+  selector: 'app-house-edit-status',
+  templateUrl: './house-edit-status.component.html',
+  styleUrls: ['./house-edit-status.component.css']
 })
-export class HouseEditComponent implements OnInit {
+export class HouseEditStatusComponent implements OnInit {
   selectedFile = new File(['none'], 'filename.jpg');
   houseForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
-    room_category: new FormControl(),
-    address: new FormControl(),
-    numberOfBedroom: new FormControl(),
-    numberOfBathroom: new FormControl(),
-    description: new FormControl(),
-    price: new FormControl(),
+    // room_category: new FormControl(),
+    // address: new FormControl(),
+    // numberOfBedroom: new FormControl(),
+    // numberOfBathroom: new FormControl(),
+    // description: new FormControl(),
+    // price: new FormControl(),
     image: new FormControl(),
-    // status: new FormControl()
+    status: new FormControl()
   });
   id: number;
   rooms: Room[] = [];
@@ -57,30 +58,30 @@ export class HouseEditComponent implements OnInit {
       this.houseForm = new FormGroup({
         id: new FormControl(house.id),
         name: new FormControl(house.name),
-        room_category: new FormControl(house.room_category.name),
-        address: new FormControl(house.address),
-        numberOfBedroom: new FormControl(house.numberOfBedroom),
-        numberOfBathroom: new FormControl(house.numberOfBathroom),
-        description: new FormControl(house.description),
-        price: new FormControl(house.price),
+        // room_category: new FormControl(house.room_category.name),
+        // address: new FormControl(house.address),
+        // numberOfBedroom: new FormControl(house.numberOfBedroom),
+        // numberOfBathroom: new FormControl(house.numberOfBathroom),
+        // description: new FormControl(house.description),
+        // price: new FormControl(house.price),
         image: new FormControl(),
-        // status: new FormControl(house.status.name)
+        status: new FormControl(house.status.name)
       });
     });
   }
 
-  updateHouse(id: number) {
+  updateHouseStatus(id: number) {
     const house: FormData = new FormData();
     house.append('id', this.houseForm.get('id').value);
     house.append('name', this.houseForm.get('name').value);
-    house.append('room_category', this.houseForm.get('room_category').value);
-    house.append('address', this.houseForm.get('address').value);
-    house.append('numberOfBedroom', this.houseForm.get('numberOfBedroom').value);
-    house.append('numberOfBathroom', this.houseForm.get('numberOfBathroom').value);
-    house.append('description', this.houseForm.get('description').value);
-    house.append('price', this.houseForm.get('price').value);
+    // house.append('room_category', this.houseForm.get('room_category').value);
+    // house.append('address', this.houseForm.get('address').value);
+    // house.append('numberOfBedroom', this.houseForm.get('numberOfBedroom').value);
+    // house.append('numberOfBathroom', this.houseForm.get('numberOfBathroom').value);
+    // house.append('description', this.houseForm.get('description').value);
+    // house.append('price', this.houseForm.get('price').value);
     house.append('image', this.selectedFile);
-    // house.append('status', this.houseForm.get('status').value);
+    house.append('status', this.houseForm.get('status').value);
     this.houseService.update(id, house).subscribe(() => {
       this.router.navigateByUrl('/houses');
     });
@@ -105,5 +106,6 @@ export class HouseEditComponent implements OnInit {
   get nameControl() {
     return this.houseForm.get('name');
   }
+
 
 }

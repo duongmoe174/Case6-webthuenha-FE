@@ -8,6 +8,6 @@ export interface House {
   description?: string;
   price?: string;
   image?: any;
-  status?: boolean;
+  status?: any;
   host?: any;
 }
