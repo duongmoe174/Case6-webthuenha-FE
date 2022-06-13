@@ -43,7 +43,7 @@ export class HouseEditStatusComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllRoom();
+    // this.getAllRoom();
     this.getAllStatus();
   }
 
@@ -87,11 +87,11 @@ export class HouseEditStatusComponent implements OnInit {
     });
   }
 
-  getAllRoom() {
-    this.roomsService.getAll().subscribe((rooms) => {
-      this.rooms = rooms;
-    });
-  }
+  // getAllRoom() {
+  //   this.roomsService.getAll().subscribe((rooms) => {
+  //     this.rooms = rooms;
+  //   });
+  // }
 
   getAllStatus() {
     this.statusService.getAll().subscribe((statuses) => {

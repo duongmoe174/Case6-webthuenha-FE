@@ -22,11 +22,11 @@ export class HouseCreateComponent implements OnInit {
   houseForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     room_category: new FormControl(),
-    address: new FormControl(),
+    address: new FormControl('', [Validators.required]),
     numberOfBedroom: new FormControl(),
     numberOfBathroom: new FormControl(),
-    description: new FormControl(),
-    price: new FormControl(),
+    description: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
     image: new FormControl(),
     status: new FormControl()
   });
@@ -61,6 +61,18 @@ export class HouseCreateComponent implements OnInit {
 
   get nameControl() {
     return this.houseForm.get('name');
+  }
+
+  get addressControl() {
+    return this.houseForm.get('address');
+  }
+
+  get descriptionControl() {
+    return this.houseForm.get('description');
+  }
+
+  get priceControl() {
+    return this.houseForm.get('price');
   }
 
   create() {
