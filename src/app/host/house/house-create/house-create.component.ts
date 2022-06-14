@@ -6,6 +6,8 @@ import {HouseService} from '../../../service/house/house.service';
 import {RoomService} from '../../../service/room/room.service';
 import {Router} from '@angular/router';
 import {Host} from '../../../model/host';
+import {Status} from '../../../model/status';
+import {StatusService} from '../../../service/status/status.service';
 
 @Component({
   selector: 'app-house-create',
@@ -13,26 +15,31 @@ import {Host} from '../../../model/host';
   styleUrls: ['./house-create.component.css']
 })
 export class HouseCreateComponent implements OnInit {
+  currentUser: any = {};
   selectedFile = null;
   house: House = {};
   rooms: Room[] = [];
+  statuses: Status[] = [];
   houseForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     room_category: new FormControl(),
-    address: new FormControl(),
+    address: new FormControl('', [Validators.required]),
     numberOfBedroom: new FormControl(),
     numberOfBathroom: new FormControl(),
-    description: new FormControl(),
-    price: new FormControl(),
+    description: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
     image: new FormControl(),
     status: new FormControl()
   });
   constructor(private houseService: HouseService,
               private roomService: RoomService,
+              private statusService: StatusService,
               private router: Router) { }
 
   ngOnInit() {
+    this.getCurrentUser();
     this.getAllRoom();
+    this.getAllStatus();
   }
   onFileSelected(event) {
     this.selectedFile = event.target.files[0] as File;
@@ -44,12 +51,30 @@ export class HouseCreateComponent implements OnInit {
     });
   }
 
+  getAllStatus() {
+    this.statusService.getAll().subscribe((statuses) => {
+      this.statuses = statuses;
+    });
+  }
+
   get idControl() {
     return this.houseForm.get('id');
   }
 
   get nameControl() {
     return this.houseForm.get('name');
+  }
+
+  get addressControl() {
+    return this.houseForm.get('address');
+  }
+
+  get descriptionControl() {
+    return this.houseForm.get('description');
+  }
+
+  get priceControl() {
+    return this.houseForm.get('price');
   }
 
   create() {
@@ -63,6 +88,7 @@ export class HouseCreateComponent implements OnInit {
     data.append('price', this.houseForm.get('price').value);
     data.append('image', this.selectedFile);
     data.append('status', this.houseForm.get('status').value);
+    data.append('host', this.currentUser.id);
     if (this.houseForm.invalid) {
       return;
     } else {
@@ -73,5 +99,8 @@ export class HouseCreateComponent implements OnInit {
       this.houseForm.reset();
     }
   }
-
+  getCurrentUser() {
+    this.currentUser = localStorage.getItem('currentUser');
+    this.currentUser = JSON.parse(this.currentUser);
+  }
 }

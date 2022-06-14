@@ -21,6 +21,7 @@ import { ProfileHostComponent } from './host/profile-host/profile-host.component
 import { ChangePasswordUserComponent } from './user/change-password-user/change-password-user.component';
 import { Error403Component } from './error403/error403/error403.component';
 import { ChangePasswordHostComponent } from './host/change-password-host/change-password-host.component';
+import { HouseEditStatusComponent } from './host/house/house-edit-status/house-edit-status.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ChangePasswordHostComponent } from './host/change-password-host/change-
     ChangePasswordUserComponent,
     Error403Component,
     ChangePasswordHostComponent,
+    HouseEditStatusComponent,
   ],
   imports: [
     BrowserModule,

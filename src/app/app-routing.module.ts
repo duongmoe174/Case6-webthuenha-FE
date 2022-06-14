@@ -17,7 +17,7 @@ import {ProfileUserComponent} from './user/profile-user/profile-user.component';
 import {ProfileHostComponent} from './host/profile-host/profile-host.component';
 import {ChangePasswordUserComponent} from './user/change-password-user/change-password-user.component';
 import {Error403Component} from './error403/error403/error403.component';
-import {HomeUserComponent} from './user/home-user/home-user.component';
+import {HouseEditStatusComponent} from './host/house/house-edit-status/house-edit-status.component';
 
 
 const routes: Routes = [
@@ -74,6 +74,10 @@ const routes: Routes = [
   {
     path: 'delete/:id',
     component: HouseDeleteComponent
+  },
+  {
+    path: 'status/:id',
+    component: HouseEditStatusComponent
   },
   {
     path: 'profileGuest',
