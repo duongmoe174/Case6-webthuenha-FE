@@ -88,7 +88,7 @@ export class HouseCreateComponent implements OnInit {
     data.append('price', this.houseForm.get('price').value);
     data.append('image', this.selectedFile);
     data.append('status', this.houseForm.get('status').value);
-    data.append('host', this.currentUser.id);
+    data.append('user', this.currentUser.id);
     if (this.houseForm.invalid) {
       return;
     } else {

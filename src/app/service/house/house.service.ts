@@ -33,4 +33,8 @@ export class HouseService {
   delete(id): Observable<House> {
     return this.http.delete(`${API_URL}/houses/${id}`);
   }
+
+  getRandom9House(): Observable<House[]> {
+    return this.http.get<House[]>(`${API_URL}/houses/random`);
+  }
 }

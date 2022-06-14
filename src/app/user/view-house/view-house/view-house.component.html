@@ -1,0 +1,345 @@
+<app-user></app-user>
+<!-- Property Details Section Begin -->
+<section class="property-details-section spad">
+
+  <div class="container">
+    <div class="card-header" style="background: white">
+      <div class="card-tools">
+        <button class="btn btn-info" data-target="#create-order" data-toggle="modal"
+                type="button" *ngIf="!ishowEditForm">
+          Đặt ngay
+        </button>
+
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="pd-details-text">
+          <div class="property-more-pic">
+            <div>
+              <button class="btn btn-info" style="float: right" data-target="#edit-img" *ngIf="ishowEditForm"
+                      data-toggle="modal"
+                      type="button">
+                Thay ảnh
+              </button>
+            </div>
+            <img src="http://localhost:8080/image/{{houseFE.image}}" alt="" width="1200px" height="700px">
+            <br>
+            <hr>
+            <br>
+            <button class="btn btn-info" data-target="#create-image" data-toggle="modal"
+                    type="button" *ngIf="ishowEditForm">
+              Thêm ảnh homestay
+            </button>
+            <button class="btn btn-info" *ngIf="ishowEditForm" (click)="changeShowEditForm()"
+                    type="button">
+              Xóa ảnh homestay
+            </button>
+
+            <div class="row" *ngIf="isShowListImagesForm">
+
+
+              <div class="col-lg-3" *ngFor="let image of images" style="margin-top: 50px">
+                <div class="single-blog-item" style="background: ghostwhite">
+<!--                  <button class="btn btn-primary" style="float: right" (click)="deleteImage(image.id)"-->
+<!--                          type="button" *ngIf="ishowEditForm">-->
+<!--                    <i class="fa fa-trash"></i>-->
+<!--                  </button>-->
+                  <div class="sb-pic">
+                    <img src="http://localhost:8080/image/{{image.name}}" height="300">
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="product-thumbs" *ngIf="!isShowListImagesForm">
+              <div class="product-thumbs-track ps-slider owl-carousel">
+                <ng-container *ngFor="let image of images">
+                  <div class="pt" data-imgbigurl="img/properties/property-details-b2.jpg"><img
+                    src="http://localhost:8080/image/{{image.name}}" style="width: 230px;height: 170px"></div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="pd-details-tab">
+            <div class="tab-item">
+              <ul class="nav" role="tablist">
+                <li>
+                  <a class="active" data-toggle="tab" href="#tab-1" role="tab">Thông tin cơ bản</a>
+                </li>
+                <li>
+                  <a data-toggle="tab" href="#tab-2" role="tab">Mô tả</a>
+                </li>
+
+              </ul>
+            </div>
+            <div class="tab-item-content">
+              <div class="tab-content">
+                <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
+                  <div class="property-more-table">
+                    <table class="table">
+                      <tbody>
+                      <tr>
+                        <td class="pt-name">Tên</td>
+                        <td class="p-value" *ngIf="houseFE.name">{{houseFE.name}}</td>
+                      </tr>
+                      <tr>
+                        <td class="pt-name">Địa chỉ</td>
+                        <td class="p-value">{{houseFE.address}}</td>
+                      </tr>
+                      <tr>
+                        <td class="pt-name">Giá</td>
+                        <td class="p-value">{{houseFE.price | number}}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="pt-name">Loại phòng</td>
+                        <td class="p-value">{{houseFE.room_category.name}}</td>
+                      </tr>
+                      <tr>
+                        <td class="pt-name">Số phòng tắm</td>
+                        <td class="p-value">{{houseFE.numberOfBathroom}}</td>
+                      </tr>
+                      <tr>
+                        <td class="pt-name">Số phòng ngủ</td>
+                        <td class="p-value">{{houseFE.numberOfBedroom}}</td>
+                      </tr>
+                      <tr>
+                        <td class="pt-name">Chủ nhà</td>
+                        <td class="p-value">{{houseFE.user.username}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="tab-2" role="tabpanel">
+                  <div class="pd-table-desc">
+                    <p>{{houseFE.description}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+<!--    <div class="row">-->
+<!--      <div class="col-lg-10 offset-lg-1">-->
+<!--        <div class="row">-->
+<!--          <h4 *ngIf="avgRate > 0">Ngôi nhà được {{rates.length}} người đánh giá, sao trung bình là : {{avgRate}} <i class="fa fa-star" style="color: yellow"></i></h4>-->
+<!--        </div>-->
+<!--        <div class="stars">-->
+<!--          <div-->
+<!--            style="margin-bottom: 10px; margin-top: 30px; border-radius: 15px; text-align: center; border: black solid 2px ; width: 300px">-->
+<!--            <h5>Đánh giá của bạn về ngôi nhà này</h5>-->
+<!--          </div>-->
+<!--          <form>-->
+<!--            <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>-->
+<!--            <label class="star star-5" for="star-5" (click)="createRate(5)"></label>-->
+<!--            <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>-->
+<!--            <label class="star star-4" for="star-4" (click)="createRate(4)"></label>-->
+<!--            <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>-->
+<!--            <label class="star star-3" for="star-3" (click)="createRate(3)"></label>-->
+<!--            <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>-->
+<!--            <label class="star star-2" for="star-2" (click)="createRate(2)"></label>-->
+<!--            <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>-->
+<!--            <label class="star star-1" for="star-1" (click)="createRate(1)"></label>-->
+<!--          </form>-->
+<!--        </div>-->
+
+<!--        <div class="comment-option">-->
+
+<!--          <h4>{{commentsAllCount.length}} bình luận</h4>-->
+<!--          <div class="single-comment-item first-comment" *ngFor="let comment of comments;index as i">-->
+<!--            <div class="sc-author">-->
+<!--              <img src="http://localhost:8080/image/{{comment.profile.avatar}}">-->
+<!--            </div>-->
+<!--            <div>-->
+<!--              <span></span>-->
+<!--              <h5>{{comment.profile.name}}</h5>-->
+<!--              <p>{{comment.text}}</p>-->
+<!--              <button (click)="like(comment.id)"-->
+<!--                      style=" width: 60px; height: 30px; color: grey;border: lightyellow">{{comment.count_like}} <i-->
+<!--                class="fas fa-thumbs-up"></i></button>-->
+<!--              <button (click)="dislike(comment.id)"-->
+<!--                      style="width: 60px; height: 30px; color: grey;border: lightyellow;margin-left: 10px"> {{comment.count_dislike}}-->
+<!--                <i-->
+<!--                  class="fas fa-thumbs-down"></i></button>-->
+<!--              <button style="width: 60px; height: 30px; color: grey;border: lightyellow;margin-left: 10px"-->
+<!--                      (click)="isShowFormReply(i,idComment)"><i class="fa fa-reply"></i>-->
+<!--              </button>-->
+<!--              <button (click)="getAllReplyByIdComment(comment.id, i)"-->
+<!--                      style="width: 60px; height: 30px; color: grey;border: lightyellow;margin-left: 10px"><i-->
+<!--                class="fa fa-commenting"></i>-->
+<!--              </button>-->
+<!--              <br>-->
+<!--              <form style="display: none" id="{{i}}">-->
+<!--                <div *ngFor="let reply of replies;index as j">-->
+<!--                  <div class="sc-author" style="margin-left: 120px;margin-top: 10px" [id]="'rep-' + j">-->
+<!--                    <img src="http://localhost:8080/image/{{reply.profile.avatar}}">-->
+<!--                  </div>-->
+<!--                  <div class="single-comment-item first-comment">-->
+<!--                    <div style="margin-top: 10px">-->
+<!--                      <span></span>-->
+<!--                      <h5>{{reply.profile.name}}</h5>-->
+<!--                      <p>{{reply.text}}</p>-->
+<!--                      <button-->
+<!--                        style="width: 60px; height: 30px; color: grey;border: lightyellow">0-->
+<!--                        <i-->
+<!--                          class="fas fa-thumbs-up"></i></button>-->
+<!--                      <button-->
+<!--                        style="width: 60px; height: 30px; color: grey;border: lightyellow;margin-left: 10px"> 0-->
+<!--                        <i-->
+<!--                          class="fas fa-thumbs-down"></i></button>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </form>-->
+<!--              <div class="row">-->
+<!--                <div class="col-lg-10 offset-lg-1">-->
+<!--                  <div class="leave-comment">-->
+<!--                    <form [formGroup]="replyForm" [id]="'rep-form-' + i" style="display: none"-->
+<!--                          (ngSubmit)="submitCreateReply(comment.id)">-->
+<!--                        <textarea placeholder="Phản hồi {{comment.profile.name}}: " formControlName="text"-->
+<!--                                  style="margin-top: 20px;margin-left: 35px"></textarea>-->
+<!--                      <button type="submit" class="site-btn" style="margin-left: 32px">Gửi</button>-->
+<!--                    </form>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--      <div class="col-lg-10 offset-lg-1">-->
+<!--        <div class="leave-comment">-->
+<!--          <h4>Viết bình luận</h4>-->
+<!--          <form [formGroup]="commentForm" (ngSubmit)="submitCreateComment()">-->
+<!--            <textarea placeholder="Viết bình luận" formControlName="text"></textarea>-->
+<!--            <button type="submit" class="site-btn">Gửi</button>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+  </div>
+
+
+</section>
+<!-- Property Details Section End -->
+
+
+<div class="modal fade" id="create-order">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><b>Đặt homstay</b></h4>
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="orderForm" (ngSubmit)="submitCreateOrder()">
+        <div class="modal-body">
+
+          <div class="form-group">
+            <span class="form-label"><b>Check In</b></span>
+            <input class="form-control" id="check-in" type="date" formControlName="checkIn">
+          </div>
+          <div class="form-group">
+            <span class="form-label"><b>Check out</b></span>
+            <input class="form-control" id="check-out" type="date" formControlName="checkOut">
+          </div>
+
+
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button class="btn btn-secondary" data-dismiss="modal" type="button">Quay lại</button>
+          <button class="btn btn-info" type="submit">Đặt ngay
+          </button>
+        </div>
+      </form>
+
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+<!--<div class="modal fade" id="edit-img">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h4 class="modal-title"><b>Thay ảnh đại diện homestay</b></h4>-->
+<!--        <button aria-label="Close" class="close" data-dismiss="modal" type="button">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <form [formGroup]="imgForm" (ngSubmit)="submitEditImg()">-->
+<!--        <div class="modal-body">-->
+
+<!--          <label for="img" class="form-label">Ảnh homstay:</label>-->
+<!--          <input class="form-control" type="file" multiple id="img" formControlName="img"-->
+<!--                 (change)="changeImg($event)">-->
+<!--          <p>-->
+<!--            <img src="{{filePath}}" alt="" width="480" height="400px" *ngIf="filePath">-->
+<!--          </p>-->
+
+<!--        </div>-->
+<!--        <div class="modal-footer justify-content-between">-->
+<!--          <button class="btn btn-secondary" data-dismiss="modal" type="button">Quay lại</button>-->
+<!--          <button class="btn btn-info" type="submit">lưu-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </form>-->
+
+<!--    </div>-->
+<!--    &lt;!&ndash; /.modal-content &ndash;&gt;-->
+<!--  </div>-->
+<!--  &lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--</div>-->
+
+
+<!--<div class="modal fade" id="create-image">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h4 class="modal-title"><b>Thêm ảnh homestay</b></h4>-->
+<!--        <button aria-label="Close" class="close" data-dismiss="modal" type="button">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <form [formGroup]="imageForm" (ngSubmit)="submitCreateImage()">-->
+<!--        <div class="modal-body">-->
+
+<!--          <label for="images" class="form-label">Ảnh homstay:</label>-->
+<!--          <input class="form-control" type="file" multiple id="images" formControlName="images"-->
+<!--                 (change)="changeFileImage($event)">-->
+<!--          <p *ngFor="let filePathImage of listPathImage">-->
+<!--            <img src="{{filePathImage.filePathImage}}" alt="" width="480" height="400px"-->
+<!--                 *ngIf="filePathImage.filePathImage">-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="modal-footer justify-content-between">-->
+<!--          <button class="btn btn-secondary" data-dismiss="modal" type="button">Quay lại</button>-->
+<!--          <button class="btn btn-info" type="submit">Thêm ảnh-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </form>-->
+
+<!--    </div>-->
+<!--    &lt;!&ndash; /.modal-content &ndash;&gt;-->
+<!--  </div>-->
+<!--  &lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--</div>-->
