@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 import {Host} from '../../../model/host';
 import {Status} from '../../../model/status';
 import {StatusService} from '../../../service/status/status.service';
+import {User} from '../../../model/user';
 
 @Component({
   selector: 'app-house-create',
@@ -18,6 +19,7 @@ export class HouseCreateComponent implements OnInit {
   currentUser: any = {};
   selectedFile = null;
   house: House = {};
+  user: User = {};
   rooms: Room[] = [];
   statuses: Status[] = [];
   houseForm: FormGroup = new FormGroup({
@@ -29,7 +31,7 @@ export class HouseCreateComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
     image: new FormControl(),
-    status: new FormControl()
+    status: new FormControl(),
   });
   constructor(private houseService: HouseService,
               private roomService: RoomService,

@@ -6,7 +6,7 @@ export interface House {
   numberOfBedroom?: string;
   numberOfBathroom?: string;
   description?: string;
-  price?: string;
+  price?: any;
   image?: any;
   status?: any;
   user?: any;

@@ -18,7 +18,7 @@ import {ProfileHostComponent} from './host/profile-host/profile-host.component';
 import {ChangePasswordUserComponent} from './user/change-password-user/change-password-user.component';
 import {Error403Component} from './error403/error403/error403.component';
 import {HouseEditStatusComponent} from './host/house/house-edit-status/house-edit-status.component';
-import {ViewHouseComponent} from './user/view-house/view-house/view-house.component';
+import {ViewHouseComponent} from './user/view-house/view-house.component';
 
 
 const routes: Routes = [

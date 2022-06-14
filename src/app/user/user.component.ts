@@ -37,11 +37,6 @@ export class UserComponent implements OnInit {
     this.currentUser = JSON.parse(this.currentUser);
     this.getProfileByUserId();
   }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('');
-  }
   getRandom9House() {
     this.houseService.getRandom9House().subscribe((housesRandomBE) => {
       this.housesRandom = housesRandomBE;

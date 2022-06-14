@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {House} from '../../../model/house';
+import {House} from '../../model/house';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {HouseService} from '../../../service/house/house.service';
+import {HouseService} from '../../service/house/house.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {NotifiService} from '../../../service/alert/notifi.service';
-import {OrderService} from '../../../service/order/order.service';
+import {NotifiService} from '../../service/alert/notifi.service';
+import {OrderService} from '../../service/order/order.service';
 
 declare var $: any;
 declare var Swal: any;
@@ -124,7 +124,7 @@ export class ViewHouseComponent implements OnInit {
               $('.modal-backdrop').remove();
             });
             this.router.navigateByUrl('/orderDetail');
-            this.notifi.showMessage('success', 'Book!', 'Đã gửi yêu cầu đặt homstay thành công, vui lòng chờ admin xác nhận');
+            this.notifi.showMessage('success', 'Book!', 'Đã gửi yêu cầu đặt homstay thành công, vui lòng chờ chủ nhà xác nhận');
           }, error => this.notifi.showMessage('error', 'Book!', 'Đặt lỗi'));
         } else {
           Swal.fire({
