@@ -18,11 +18,11 @@ export class StatusService {
     return this.http.get<Status[]>(`${API_URL}/houses/status`);
   }
 
-  findById(id): Observable<House> {
+  findById(id): Observable<Status> {
     return this.http.get<House>(`${API_URL}/houses/${id}`);
   }
 
-  update(id, data): Observable<House> {
+  update(id, data): Observable<Status> {
     return this.http.post(`${API_URL}/houses/status/${id}`, data);
   }
 }
