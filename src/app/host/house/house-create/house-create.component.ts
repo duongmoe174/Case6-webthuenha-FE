@@ -4,10 +4,11 @@ import {Room} from '../../../model/room';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HouseService} from '../../../service/house/house.service';
 import {RoomService} from '../../../service/room/room.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Host} from '../../../model/host';
 import {Status} from '../../../model/status';
 import {StatusService} from '../../../service/status/status.service';
+import {HostService} from '../../../service/host/host.service';
 
 @Component({
   selector: 'app-house-create',
@@ -19,6 +20,8 @@ export class HouseCreateComponent implements OnInit {
   house: House = {};
   rooms: Room[] = [];
   statuses: Status[] = [];
+  currentUser: any = {};
+  host: any = {};
   houseForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     room_category: new FormControl(),
@@ -28,19 +31,35 @@ export class HouseCreateComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
     image: new FormControl(),
-    status: new FormControl()
+    status: new FormControl(),
   });
   constructor(private houseService: HouseService,
               private roomService: RoomService,
               private statusService: StatusService,
+              private hostService: HostService,
+              private activatedRouter: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
     this.getAllRoom();
     this.getAllStatus();
+    this.getAppUserById();
   }
+
   onFileSelected(event) {
     this.selectedFile = event.target.files[0] as File;
+  }
+
+  getHostByAppUser(id) {
+    this.houseService.findHostByAppUserId(id).subscribe(hostId => {
+      this.host = hostId;
+    });
+  }
+
+  getAppUserById() {
+    this.currentUser = localStorage.getItem('currentUser');
+    this.currentUser = JSON.parse(this.currentUser);
+    this.getHostByAppUser(this.currentUser.id);
   }
 
   getAllRoom() {
@@ -86,6 +105,7 @@ export class HouseCreateComponent implements OnInit {
     data.append('price', this.houseForm.get('price').value);
     data.append('image', this.selectedFile);
     data.append('status', this.houseForm.get('status').value);
+    data.append('host', this.host.id);
     if (this.houseForm.invalid) {
       return;
     } else {
