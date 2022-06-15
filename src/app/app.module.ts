@@ -24,6 +24,8 @@ import { ChangePasswordHostComponent } from './host/change-password-host/change-
 import { HouseEditStatusComponent } from './host/house/house-edit-status/house-edit-status.component';
 import { NavBarUserComponent } from './user/nav-bar-user/nav-bar-user.component';
 import { ViewHouseComponent } from './user/view-house/view-house.component';
+import { NotificationDetailComponent } from './host/notification-detail/notification-detail.component';
+import { OrderDetailComponent } from './user/order-detail/order-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ViewHouseComponent } from './user/view-house/view-house.component';
     HouseEditStatusComponent,
     NavBarUserComponent,
     ViewHouseComponent,
+    NotificationDetailComponent,
+    OrderDetailComponent,
   ],
   imports: [
     BrowserModule,

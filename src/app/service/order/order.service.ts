@@ -17,4 +17,16 @@ export class OrderService {
   getAllOrderStatusDoneByIdHouse(id) {
     return this.http.get<any>(`${API_URL}/orders/statusDone/house/${id}`);
   }
+
+  get5OrderByOrderIdRent(id) {
+    return this.http.get<any>(`${API_URL}/orders/historyOrderTop5/${id}`);
+  }
+
+  changeCheckinOrder(id) {
+    return this.http.get<any>(`${API_URL}/orders/changeStatusCheckin/${id}`);
+  }
+
+  customerChangeStatusOrderCanceled(id) {
+    return this.http.get<any>(`${API_URL}/orders/customerChangeStatusCanceled/${id}`);
+  }
 }
