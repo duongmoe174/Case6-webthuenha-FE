@@ -27,10 +27,14 @@ export class HouseService {
   }
 
   update(id, data): Observable<House> {
-    return this.http.post(`${API_URL}/houses/${id}`, data);
+    return this.http.post<House>(`${API_URL}/houses/${id}`, data);
   }
 
   delete(id): Observable<House> {
     return this.http.delete(`${API_URL}/houses/${id}`);
+  }
+
+  findHostByAppUserId(id): Observable<House> {
+    return this.http.get<House>(`${API_URL}/houses/getHostByAppUser/${id}`);
   }
 }

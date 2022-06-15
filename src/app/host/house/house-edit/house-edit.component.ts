@@ -24,7 +24,6 @@ export class HouseEditComponent implements OnInit {
     description: new FormControl(),
     price: new FormControl(),
     image: new FormControl(),
-    // status: new FormControl()
   });
   id: number;
   rooms: Room[] = [];
@@ -64,7 +63,6 @@ export class HouseEditComponent implements OnInit {
         description: new FormControl(house.description),
         price: new FormControl(house.price),
         image: new FormControl(),
-        // status: new FormControl(house.status.name)
       });
     });
   }
@@ -80,7 +78,6 @@ export class HouseEditComponent implements OnInit {
     house.append('description', this.houseForm.get('description').value);
     house.append('price', this.houseForm.get('price').value);
     house.append('image', this.selectedFile);
-    // house.append('status', this.houseForm.get('status').value);
     this.houseService.update(id, house).subscribe(() => {
       this.router.navigateByUrl('/houses');
     });

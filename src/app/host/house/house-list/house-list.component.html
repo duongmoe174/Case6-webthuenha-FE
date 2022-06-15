@@ -13,7 +13,7 @@
     <div style="text-align: right">
       <div class="card-tools">
         <a routerLink="/create">
-          <button class="btn btn-info" style="width: 150px; height: 50px">Tạo mới</button>
+          <button class="btn btn-info" style="width: 150px; height: 50px; margin-right: 5px">Tạo mới</button>
         </a>
         <a routerLink="/host">
           <button class="btn btn-secondary" style="width: 150px; height: 50px">Trang chủ</button>
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-lg-4" *ngFor="let house of houses" style="margin-top: 50px">
         <div class="single-blog-item" style="background: ghostwhite">
-          <div class="sb-pic" routerLink="/view/{{house.id}}">
+          <div class="sb-pic" routerLink="/detail/{{house.id}}">
             <img src="http://localhost:8080/image/{{house.image}}" height="300">
           </div>
           <div class="sb-text" style="text-align: center">
@@ -42,23 +42,20 @@
               </li>
 
               <li>
-                <i class="fa fa-calendar"> {{house.status.name}}</i>
+                <i class="fa fa-edit" [routerLink]="['/status', house.id]"> {{house.status.name}}</i>
                 <p></p>
               </li>
             </ul>
             <div class="row">
-              <div class="col-lg-4" style="float: left">
-                <a [routerLink]="['/detail', house.id]" class="btn btn-info" style="width: 100px">
-                  <span class="fas fa-info"></span>
-                </a>
-              </div>
-              <div class="col-lg-4" style="float: left">
+              <div class="col-lg-6" style="float: left">
                 <a [routerLink]="['/edit', house.id]" class="btn btn-warning" style="width: 100px">
                   <span class="fas fa-edit"></span>
                 </a>
               </div>
-              <div class="col-lg-4" class="btn btn-danger" style="width: 100px" [routerLink]="['/delete', house.id]">
-                <span class="fas fa-trash"></span>
+              <div class="col-lg-6" style="float: left">
+                <a [routerLink]="['/delete', house.id]" class="btn btn-danger" style="width: 100px">
+                  <span class="fas fa-trash"></span>
+                </a>
               </div>
             </div>
           </div>

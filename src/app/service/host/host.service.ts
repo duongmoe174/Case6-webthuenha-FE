@@ -14,7 +14,12 @@ export class HostService {
 
   constructor(private http: HttpClient) { }
 
+  getHostById(id): Observable<Host> {
+    return this.http.get<Host>(`${API_URL}/houses/hosts/${id}`);
+  }
+
   getAll(): Observable<Host[]> {
     return this.http.get<Host[]>(`${API_URL}/houses/host`);
   }
+
 }
