@@ -20,7 +20,6 @@
                 <th>#</th>
                 <th>Tên người đặt</th>
                 <th>Tên nhà</th>
-                <th>Thành phố</th>
                 <th>Địa chỉ</th>
                 <th>Giá thuê</th>
                 <th>Ngày check in</th>
@@ -32,10 +31,9 @@
               <tbody>
               <tr *ngFor="let order of orders; index as i">
                 <td>{{i + 1}}</td>
-                <td>{{order.user.username}}</td>
+                <td>{{order.user.name}}</td>
                 <td>{{order.house.name}}</td>
-                <td>{{order.house.city.name}}</td>
-                <td>{{order.house.location}}</td>
+                <td>{{order.house.address}}</td>
                 <td>{{order.house.price}}</td>
                 <td>{{order.checkIn | date: 'dd'}}/{{order.checkIn | date:'MM'}}/{{order.checkIn | date: 'yyyy'}}</td>
                 <td>{{order.checkOut | date: 'dd'}}/{{order.checkOut | date:'MM'}}/{{order.checkOut | date: 'yyyy'}}</td>

@@ -18,24 +18,11 @@
         <div class="pd-details-text">
           <div class="property-more-pic">
             <div>
-              <button class="btn btn-info" style="float: right" data-target="#edit-img" *ngIf="ishowEditForm"
-                      data-toggle="modal"
-                      type="button">
-                Thay ảnh
-              </button>
             </div>
             <img src="http://localhost:8080/image/{{houseFE.image}}" alt="" width="1200px" height="700px">
             <br>
             <hr>
             <br>
-            <button class="btn btn-info" data-target="#create-image" data-toggle="modal"
-                    type="button" *ngIf="ishowEditForm">
-              Thêm ảnh homestay
-            </button>
-            <button class="btn btn-info" *ngIf="ishowEditForm" (click)="changeShowEditForm()"
-                    type="button">
-              Xóa ảnh homestay
-            </button>
 
             <div class="row" *ngIf="isShowListImagesForm">
 
