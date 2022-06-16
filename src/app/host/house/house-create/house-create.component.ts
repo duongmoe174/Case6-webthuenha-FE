@@ -5,7 +5,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HouseService} from '../../../service/house/house.service';
 import {RoomService} from '../../../service/room/room.service';
 import {Router} from '@angular/router';
-import {Host} from '../../../model/host';
 import {Status} from '../../../model/status';
 import {StatusService} from '../../../service/status/status.service';
 import {User} from '../../../model/user';
