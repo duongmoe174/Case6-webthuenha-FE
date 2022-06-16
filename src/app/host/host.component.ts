@@ -21,20 +21,14 @@ export class HostComponent implements OnInit {
     this.getCurrentUser();
   }
 
-  getProfileByUserId() {
-    this.profileService.getHostByAppUserId(this.currentUser.id).subscribe((profileBE) => {
-      this.profile = profileBE;
-    });
-  }
-
   getCurrentUser() {
     this.currentUser = localStorage.getItem('currentUser');
     this.currentUser = JSON.parse(this.currentUser);
-    this.getProfileByUserId();
+    this.getProfileHost(this.currentUser.id);
   }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('');
+  getProfileHost(id) {
+    this.profileService.getHostByAppUserId(id).subscribe(profileBE => {
+      this.profile = profileBE;
+    });
   }
 }

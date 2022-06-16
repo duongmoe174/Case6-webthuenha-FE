@@ -25,8 +25,8 @@ export class NavBarHostComponent implements OnInit {
     this.getCurrentUser();
   }
 
-  getProfileByUserId() {
-    this.profileService.getProfileByUserId(this.currentUser.id).subscribe((profileBE) => {
+  getProfileHost(id) {
+    this.profileService.getHostByAppUserId(id).subscribe(profileBE => {
       this.profile = profileBE;
     });
   }
@@ -36,13 +36,13 @@ export class NavBarHostComponent implements OnInit {
     this.currentUser = localStorage.getItem('currentUser');
     this.currentUser = JSON.parse(this.currentUser);
     this.getAllNotificationDetailByCurrentId();
-    this.getProfileByUserId();
+    this.getProfileHost(this.currentUser.id);
   }
 
 
   logout() {
     this.authService.logout();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('');
   }
 
   getAllNotificationDetailByCurrentId() {

@@ -1,1 +1,95 @@
-<p>notification-detail works!</p>
+<app-nav-bar-host></app-nav-bar-host>
+<section class="section pt-4 pb-4 osahan-account-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="osahan-account-page-right rounded shadow-sm bg-white p-4 h-100">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" role="tabpanel"
+                 aria-labelledby="orders-tab">
+              <h4 class="font-weight-bold mt-0 mb-4">Thông báo chưa đọc</h4>
+              <div class="bg-white card mb-4 order-list shadow-sm" *ngFor="let information of listInformationIsActive"
+                   (click)="changeActiveInformation(information.id)">
+                <div class="gold-members p-4">
+                  <div class="media">
+                    <div>
+                      <a routerLink="{{information.path}}"><img
+                        src="http://localhost:8080/image/{{information.house.image}}" width="230px" height="153px"
+                        style="margin-right: 20px"></a>
+
+                    </div>
+
+                    <div class="media-body">
+                      <span class="float-right text-info"><i
+                        class="fa fa-clock"></i> {{information.createDay | date: 'HH'}}
+                        :{{information.createDay | date:'mm'}}:{{information.createDay | date: 'ss'}}</span>
+                      <h5 class="mb-2">
+<!--                        <b>{{information.profile.name}}</b>-->
+                      </h5>
+                      <span class="float-right text-info">{{information.createDay | date: 'dd'}}
+                        /{{information.createDay | date:'MM'}}/{{information.createDay | date: 'yyyy'}} </span>
+
+                      <p class="text-gray mb-1">{{information.statusNotification.name}}
+                      </p>
+                      <hr>
+                      <h5 class="text-gray mb-3"><b>Tên: {{information.house.name}}</b>
+                      </h5>
+                      <p>Homestay: {{information.house.address}}</p>
+                      <hr>
+                      <a routerLink="{{information.path}}">Xem chi tiết</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <hr>
+          <br>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" role="tabpanel"
+                 aria-labelledby="orders-tab">
+              <h4 class="font-weight-bold mt-0 mb-4">Thông báo đã đọc</h4>
+              <div class="bg-white card mb-4 order-list shadow-sm" *ngFor="let information of lisInformationSaveActive">
+                <div class="gold-members p-4">
+                  <div class="media">
+                    <div>
+                      <a routerLink="/view/{{information.house.id}}"><img
+                        src="http://localhost:8080/image/{{information.house.image}}" width="230px" height="153px"
+                        style="margin-right: 20px"></a>
+                    </div>
+                    <div class="media-body">
+                      <span class="float-right text-info"><i
+                        class="fa fa-clock"></i> {{information.createDay | date: 'HH'}}
+                        :{{information.createDay | date:'mm'}}:{{information.createDay | date: 'ss'}}</span>
+                      <h5 class="mb-2">
+<!--                        <b>{{information.profile.name}}</b>-->
+                      </h5>
+                      <span class="float-right text-info">{{information.createDay | date: 'dd'}}
+                        /{{information.createDay | date:'MM'}}/{{information.createDay | date: 'yyyy'}} </span>
+
+                      <p class="text-gray mb-1">{{information.statusNotification.name}}
+                      </p>
+                      <hr>
+                      <h5 class="text-gray mb-3"><b>Tên: {{information.house.name}}</b>
+                      </h5>
+                      <p>Homestay: {{information.house.address}}</p>
+                      <hr>
+                      <div class="float-right">
+                        <p>Đã xem</p>
+                      </div>
+                      <a routerLink="{{information.path}}">Xem chi tiết</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

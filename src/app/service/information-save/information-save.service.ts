@@ -16,7 +16,7 @@ export class InformationSaveService {
     return this.http.get<any>(`${API_URL}/informationSave/${id}`);
   }
 
-  changeActiveInfomation(id) {
+  changeActiveInformation(id) {
     return this.http.get<any>(`${API_URL}/informationSave?id=${id}`);
   }
 }

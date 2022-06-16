@@ -20,6 +20,7 @@ import {Error403Component} from './error403/error403/error403.component';
 import {HouseEditStatusComponent} from './host/house/house-edit-status/house-edit-status.component';
 import {ViewHouseComponent} from './user/view-house/view-house.component';
 import {OrderDetailComponent} from './user/order-detail/order-detail.component';
+import {NotificationDetailComponent} from './host/notification-detail/notification-detail.component';
 
 
 const routes: Routes = [
@@ -104,6 +105,10 @@ const routes: Routes = [
   {
     path: 'orderDetail',
     component: OrderDetailComponent
+  },
+  {
+    path: 'notification',
+    component: NotificationDetailComponent
   }
 ];
 
