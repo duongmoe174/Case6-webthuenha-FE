@@ -26,6 +26,7 @@ import { NavBarUserComponent } from './user/nav-bar-user/nav-bar-user.component'
 import { ViewHouseComponent } from './user/view-house/view-house.component';
 import { NotificationDetailComponent } from './host/notification-detail/notification-detail.component';
 import { OrderDetailComponent } from './user/order-detail/order-detail.component';
+import { NavBarHostComponent } from './host/nav-bar-host/nav-bar-host.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { OrderDetailComponent } from './user/order-detail/order-detail.component
     ViewHouseComponent,
     NotificationDetailComponent,
     OrderDetailComponent,
+    NavBarHostComponent,
   ],
   imports: [
     BrowserModule,
