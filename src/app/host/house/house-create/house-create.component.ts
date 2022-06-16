@@ -9,6 +9,7 @@ import {Host} from '../../../model/host';
 import {Status} from '../../../model/status';
 import {StatusService} from '../../../service/status/status.service';
 import {User} from '../../../model/user';
+import {ProfileService} from '../../../service/profile/profile.service';
 
 @Component({
   selector: 'app-house-create',
@@ -16,6 +17,7 @@ import {User} from '../../../model/user';
   styleUrls: ['./house-create.component.css']
 })
 export class HouseCreateComponent implements OnInit {
+  host: any = {};
   currentUser: any = {};
   selectedFile = null;
   house: House = {};
@@ -36,7 +38,8 @@ export class HouseCreateComponent implements OnInit {
   constructor(private houseService: HouseService,
               private roomService: RoomService,
               private statusService: StatusService,
-              private router: Router) { }
+              private router: Router,
+              private profileService: ProfileService) { }
 
   ngOnInit() {
     this.getCurrentUser();
@@ -90,7 +93,7 @@ export class HouseCreateComponent implements OnInit {
     data.append('price', this.houseForm.get('price').value);
     data.append('image', this.selectedFile);
     data.append('status', this.houseForm.get('status').value);
-    data.append('user', this.currentUser.id);
+    data.append('host', this.host.id);
     if (this.houseForm.invalid) {
       return;
     } else {
@@ -104,5 +107,11 @@ export class HouseCreateComponent implements OnInit {
   getCurrentUser() {
     this.currentUser = localStorage.getItem('currentUser');
     this.currentUser = JSON.parse(this.currentUser);
+    this.getHostByAppUserId(this.currentUser.id);
+  }
+  getHostByAppUserId(id) {
+    this.profileService.getHostByAppUserId(id).subscribe(newHost => {
+      this.host = newHost;
+    });
   }
 }

@@ -9,5 +9,6 @@ export interface House {
   price?: any;
   image?: any;
   status?: any;
+  host?: any;
   user?: any;
 }
