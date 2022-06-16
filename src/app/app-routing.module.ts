@@ -21,6 +21,7 @@ import {HouseEditStatusComponent} from './host/house/house-edit-status/house-edi
 import {ViewHouseComponent} from './user/view-house/view-house.component';
 import {OrderDetailComponent} from './user/order-detail/order-detail.component';
 import {NotificationDetailComponent} from './host/notification-detail/notification-detail.component';
+import {OrderComponent} from './host/order/order.component';
 
 
 const routes: Routes = [
@@ -109,6 +110,10 @@ const routes: Routes = [
   {
     path: 'notification',
     component: NotificationDetailComponent
+  },
+  {
+    path: 'orders',
+    component: OrderComponent
   }
 ];
 
