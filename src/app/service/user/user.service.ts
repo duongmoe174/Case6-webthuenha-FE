@@ -16,4 +16,8 @@ export class UserService {
   getAll(): Observable<House[]> {
     return this.http.get<House[]>(`${API_URL}/houses/randomHouse`);
   }
+
+  findById(id): Observable<House> {
+    return this.http.get<House>(`${API_URL}/houses/${id}`);
+  }
 }
