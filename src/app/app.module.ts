@@ -20,7 +20,9 @@ import { ProfileUserComponent } from './user/profile-user/profile-user.component
 import { ProfileHostComponent } from './host/profile-host/profile-host.component';
 import { ChangePasswordUserComponent } from './user/change-password-user/change-password-user.component';
 import { HouseEditStatusComponent } from './host/house/house-edit-status/house-edit-status.component';
-import { ListHomestayComponent } from './user/list-homestay/list-homestay.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { UserBookHouseComponent } from './user/user-book-house/user-book-house.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ListHomestayComponent } from './user/list-homestay/list-homestay.compon
     ProfileHostComponent,
     ChangePasswordUserComponent,
     HouseEditStatusComponent,
-    ListHomestayComponent,
+    UserDetailComponent,
+    UserBookHouseComponent,
+
   ],
   imports: [
     BrowserModule,
