@@ -28,6 +28,7 @@ import { NotificationDetailComponent } from './host/notification-detail/notifica
 import { OrderDetailComponent } from './user/order-detail/order-detail.component';
 import { NavBarHostComponent } from './host/nav-bar-host/nav-bar-host.component';
 import { OrderComponent } from './host/order/order.component';
+import { FooterComponent } from './footer/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { OrderComponent } from './host/order/order.component';
     OrderDetailComponent,
     NavBarHostComponent,
     OrderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
