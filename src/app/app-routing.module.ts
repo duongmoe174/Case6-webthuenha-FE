@@ -22,6 +22,8 @@ import {ViewHouseComponent} from './user/view-house/view-house.component';
 import {OrderDetailComponent} from './user/order-detail/order-detail.component';
 import {NotificationDetailComponent} from './host/notification-detail/notification-detail.component';
 import {OrderComponent} from './host/order/order.component';
+import {AuthGuard} from './helper/auth.guard';
+import {HostAuthGuard} from './helper/host-auth.guard';
 
 
 const routes: Routes = [
@@ -53,7 +55,7 @@ const routes: Routes = [
   },
   {
     path: 'host',
-    component: HostComponent
+    component: HostComponent,
   },
   {
     path: 'loadPage',
@@ -61,59 +63,59 @@ const routes: Routes = [
   },
   {
     path: 'houses',
-    component: HouseListComponent
+    component: HouseListComponent,
   },
   {
     path: 'detail/:id',
-    component: HouseDetailComponent
+    component: HouseDetailComponent,
   },
   {
     path: 'create',
-    component: HouseCreateComponent
+    component: HouseCreateComponent,
   },
   {
     path: 'edit/:id',
-    component: HouseEditComponent
+    component: HouseEditComponent,
   },
   {
     path: 'delete/:id',
-    component: HouseDeleteComponent
+    component: HouseDeleteComponent,
   },
   {
     path: 'status/:id',
-    component: HouseEditStatusComponent
+    component: HouseEditStatusComponent,
   },
   {
     path: 'profileGuest',
-    component: ProfileUserComponent
+    component: ProfileUserComponent,
   },
   {
     path: 'profileHost',
-    component: ProfileHostComponent
+    component: ProfileHostComponent,
   },
   {
     path: 'changePassUser',
-    component: ChangePasswordUserComponent
+    component: ChangePasswordUserComponent,
   },
   {
     path: '403',
-    component: Error403Component
+    component: Error403Component,
   },
   {
     path: 'view/:id',
-    component: ViewHouseComponent
+    component: ViewHouseComponent,
   },
   {
     path: 'orderDetail',
-    component: OrderDetailComponent
+    component: OrderDetailComponent,
   },
   {
     path: 'notification',
-    component: NotificationDetailComponent
+    component: NotificationDetailComponent,
   },
   {
     path: 'orders',
-    component: OrderComponent
+    component: OrderComponent,
   }
 ];
 

@@ -1,51 +1,54 @@
-<h1>Xóa nhà</h1>
-<a routerLink="/houses">Danh sách nhà</a>
-<br>
-<br>
-<form [formGroup]="houseForm" (ngSubmit)="delete(id)">
-  <input type="hidden"[routerLink]="" id="id" formControlName="id">
-  <div>
-    <label for="name">Tên nhà</label>
-    <input disabled type="text" id="name" formControlName="name">
+<div class="container">
+  <div class="main-body">
+    <form [formGroup]="houseForm" (ngSubmit)="delete(id)" class="mb-3">
+      <div class="row gutters-sm">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="background: snow">
+          <h3 style="text-align: center"><b>Xóa homestay</b></h3>
+          <br>
+          <div>
+            <label for="name" >Tên nhà</label>
+            <input disabled type="text" id="name" formControlName="name" class="form-control">
+          </div>
+          <br>
+          <div>
+            <label for="room_category">Loại phòng</label>
+            <input disabled type="text" id="room_category" formControlName="room_category" class="form-control">
+          </div>
+          <br>
+          <div>
+            <label for="address">Địa chỉ</label>
+            <input disabled type="text" id="address" formControlName="address" class="form-control">
+          </div>
+          <br>
+          <br>
+          <div>
+            <label for="numberOfBedroom">Số phòng ngủ</label>
+            <input disabled id="numberOfBedroom" formControlName="numberOfBedroom" class="form-control">
+          </div>
+          <br>
+          <div>
+            <label for="numberOfBathroom">Số phòng tắm</label>
+            <input disabled id="numberOfBathroom" formControlName="numberOfBathroom" class="form-control">
+          </div>
+          <br>
+          <div>
+            <label for="description">Mô tả</label>
+            <input disabled type="text" id="description" formControlName="description" class="form-control">
+          </div>
+          <br>
+          <div>
+            <label for="price">Giá nhà</label>
+            <input disabled type="text" id="price" formControlName="price" class="form-control">
+          </div>
+          <br>
+          <br>
+          <div class="modal-footer justify-content-between">
+            <button class="btn btn-secondary" data-dismiss="modal" routerLink="/houses">Quay lại</button>
+            <button class="btn btn-danger" type="submit">Xóa</button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-  <br>
-  <div>
-    <label for="room_category">Loại phòng</label>
-    <input disabled type="text" id="room_category" formControlName="room_category">
-  </div>
-  <br>
-  <div>
-    <label for="address">Địa chỉ</label>
-    <input disabled type="text" id="address" formControlName="address">
-  </div>
-  <br>
-  <br>
-  <div>
-    <label for="numberOfBedroom">Số phòng ngủ</label>
-    <input disabled id="numberOfBedroom" formControlName="numberOfBedroom">
-  </div>
-  <br>
-  <div>
-    <label for="numberOfBathroom">Số phòng tắm</label>
-    <input disabled id="numberOfBathroom" formControlName="numberOfBathroom">
-  </div>
-  <br>
-  <div>
-    <label for="description">Mô tả</label>
-    <input disabled type="text" id="description" formControlName="description">
-  </div>
-  <br>
-  <div>
-    <label for="price">Giá nhà</label>
-    <input disabled type="text" id="price" formControlName="price">
-  </div>
-  <br>
-  <div>
-    <label for="image">Ảnh</label>
-    <input disabled type="file" id="image" (change)="onFileSelected($event)">
-  </div>
-  <br>
-  <div>
-    <button>Xóa nhà</button>
-  </div>
-</form>
+</div>

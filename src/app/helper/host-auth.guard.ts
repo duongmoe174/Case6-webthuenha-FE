@@ -5,16 +5,21 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class HostAuthGuard implements CanActivate, CanActivateChild {
   constructor(private router: Router) {
   }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     let currentUser = localStorage.getItem('currentUser');
     let user = JSON.parse(currentUser);
     if (user != null) {
-      return true;
+      if (user.roles.authority === 'ROLE_HOST') {
+        return true;
+      }
+    } else {
+      localStorage.removeItem('currentUser');
     }
     this.router.navigateByUrl('');
     return false;
@@ -26,9 +31,14 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     let currentUser = localStorage.getItem('currentUser');
     let user = JSON.parse(currentUser);
     if (user != null) {
-      return true;
+      if (user.roles === 'ROLE_HOST') {
+        return true;
+      }
+    } else {
+      localStorage.removeItem('currentUser');
     }
     this.router.navigateByUrl('');
     return false;
   }
+
 }
